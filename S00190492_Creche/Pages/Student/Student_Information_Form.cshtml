@@ -1,0 +1,63 @@
+﻿@page
+@model S00190492_Creche.Pages.Student.Student_Information_FormModel
+@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Student"] = "Student_Information_Form";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    <form method="post">
+
+        <div asp-validation-summary="All"></div>
+
+       <div>
+            <label asp-for=Student.ChildFirstName></label>
+            <input asp-for=Student.ChildFirstName />
+        </div>
+
+        <div>
+            <label asp-for=Student.ChildLastName></label>
+            <input asp-for=Student.ChildLastName />
+        </div>
+
+        <div>
+            <label asp-for=Student.PPS_ID></label>
+            <input asp-for=Student.PPS_ID />
+        </div>
+
+        <div>
+            <label asp-for=Student.DateOfBirth></label>
+            <input asp-for=Student.DateOfBirth />
+        </div>
+
+        <div>
+            <label id="m" asp-for=Student.Gender></label>
+            <input id="m" value="Male" type="radio" asp-for=Student.Gender />
+            <label id="f" asp-for=Student.Gender></label>
+            <input id="f" value="Female" type="radio" asp-for=Student.Gender />
+        </div>
+
+        <div>
+            <label asp-for=Student.ParentFirstName></label>
+            <input asp-for=Student.ParentFirstName />
+        </div>
+
+
+
+
+        <button type="submit">Press Me</button>
+
+
+    </form>
+
+</body>
+</html>
+
