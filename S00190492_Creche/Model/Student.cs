@@ -29,9 +29,9 @@ namespace S00190492_Creche.Model
         [Required(ErrorMessage = "The parent first name is required")]
         [Display(Name = "Parent First Name")]
         public string ParentFirstName { get; set; } = "";
-        //[Required(ErrorMessage = "The parent last name is required")]
-        //[Display(Name = "Parent Last Name")]
-        //public string ParentLastName { get; set; } = "";
+        [Required(ErrorMessage = "The parent last name is required")]
+        [Display(Name = "Parent Last Name")]
+        public string ParentLastName { get; set; } = "";
         //[Required(ErrorMessage = "Select a relationship")]
         //[Display(Name = "Relationship")]
         //public string[] RelationshipToChild { get; set; }
