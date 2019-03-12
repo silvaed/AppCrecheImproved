@@ -18,37 +18,115 @@
 
         <div asp-validation-summary="All"></div>
 
-       <div>
+        <div>
             <label asp-for=Student.ChildFirstName></label>
             <input asp-for=Student.ChildFirstName />
         </div>
-
+        <br />
         <div>
             <label asp-for=Student.ChildLastName></label>
             <input asp-for=Student.ChildLastName />
         </div>
-
+        <br />
         <div>
-            <label asp-for=Student.PPS_ID></label>
-            <input asp-for=Student.PPS_ID />
+            <label asp-for=Student.PPS></label>
+            <input asp-for=Student.PPS />
         </div>
-
+        <br />
         <div>
             <label asp-for=Student.DateOfBirth></label>
-            <input asp-for=Student.DateOfBirth />
+            <input type="Date" asp-for=Student.DateOfBirth />
         </div>
-
+        <br />
         <div>
-            <label id="m" asp-for=Student.Gender></label>
-            <input id="m" value="Male" type="radio" asp-for=Student.Gender />
-            <label id="f" asp-for=Student.Gender></label>
-            <input id="f" value="Female" type="radio" asp-for=Student.Gender />
+            <span style="font-weight:bold">
+                Gender&nbsp;
+                <label id="m" asp-for=Student.Gender>Male</label>
+                <input id="m" value="Male" type="radio" asp-for=Student.Gender />
+                <label id="f" asp-for=Student.Gender>Female</label>
+                <input id="f" value="Female" type="radio" asp-for=Student.Gender />
+            </span>
         </div>
-
+        <br />
         <div>
             <label asp-for=Student.ParentFirstName></label>
             <input asp-for=Student.ParentFirstName />
         </div>
+        <br />
+        <div>
+            <label asp-for=Student.ParentLastName></label>
+            <input asp-for=Student.ParentLastName />
+        </div>
+        <br />
+        <div>
+            <span style="font-weight:bold">
+                Relationship&nbsp;
+                <label id="m" asp-for=Student.RelationshipToChild>Mother</label>
+                <input id="m" value="1" type="radio" asp-for=Student.RelationshipToChild />
+                <label id="f" asp-for=Student.RelationshipToChild>Father</label>
+                <input id="f" value="2" type="radio" asp-for=Student.RelationshipToChild />
+                <label id="o" asp-for=Student.RelationshipToChild>Other</label>
+                <input id="o" value="3" type="radio" asp-for=Student.RelationshipToChild />
+            </span>
+        </div>
+        <br />
+        <div>
+            <label asp-for=Student.Address></label>
+            <input asp-for=Student.Address />
+        </div>
+        <br />
+        <div>
+            <label asp-for=Student.City></label>
+            <input asp-for=Student.City />
+        </div>
+        <br />
+        <div>
+            <label asp-for=Student.ZipCode></label>
+            <input asp-for=Student.ZipCode />
+        </div>
+        <br />
+        <div>
+            <label asp-for=Student.MobileNumber></label>
+            <input asp-for=Student.MobileNumber />
+        </div>
+        <br />
+        <div>
+            <label asp-for=Student.SecondContactNumber></label>
+            <input asp-for=Student.SecondContactNumber />
+        </div>
+        <br />
+        <div>
+            <label asp-for=Student.Email></label>
+            <input asp-for=Student.Email />
+        </div>
+        <br />
+        <div>
+            <label asp-for=Student.SecondEmail></label>
+            <input asp-for=Student.SecondEmail />
+        </div>
+        <br />
+        <div>
+            <label id="f" asp-for=Student.Hours>Full Time</label>
+            <input id="f" value="full" type="radio" asp-for=Student.Hours />
+            <label id="p" asp-for=Student.Hours>Part Time</label>
+            <input id="p" value="part"type="radio" asp-for=Student.Hours />
+        </div>
+        <br />
+        @*<div>
+            <select asp-for="Student.DaysRequested" multiple>
+                <option name="Monday" value="Monday" asp-for=Student.DaysRequested>Tuesday</option>
+                <option name="Tuesday" value="Tuesday" asp-for=Student.DaysRequested>Monday</option>
+                <option name="Wednesday" value="Wednesday" asp-for=Student.DaysRequested>Wednesday</option>
+                <option name="Thurday" value="Thurday" asp-for=Student.DaysRequested>Thurday</option>
+                <option name="Friday" value="Friday" asp-for=Student.DaysRequested>Friday</option>
+            </select>
+        </div>*@
+        <br />
+        <div>
+            <label asp-for=Student.StartingDate></label>
+            <input type="Date" asp-for=Student.StartingDate />
+        </div>
+
 
 
 
