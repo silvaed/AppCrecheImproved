@@ -66,6 +66,8 @@ namespace S00190492_Creche.Model
         [Required(ErrorMessage = "The starting date is required")]
         [Display(Name = "Starting Date")]
         public DateTime StartingDate { get; set; }
+        public bool Monday { get; set; } 
+        public bool Tuesday { get; set; }
 
         public Student()
         {

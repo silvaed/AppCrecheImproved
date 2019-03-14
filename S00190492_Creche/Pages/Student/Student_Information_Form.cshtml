@@ -109,7 +109,7 @@
             <label id="f" asp-for=Student.Hours>Full Time</label>
             <input id="f" value="full" type="radio" asp-for=Student.Hours />
             <label id="p" asp-for=Student.Hours>Part Time</label>
-            <input id="p" value="part"type="radio" asp-for=Student.Hours />
+            <input id="p" value="part" type="radio" asp-for=Student.Hours />
         </div>
         <br />
         @*<div>
@@ -126,8 +126,14 @@
             <label asp-for=Student.StartingDate></label>
             <input type="Date" asp-for=Student.StartingDate />
         </div>
-
-
+        <div  style="display:inline">
+            <label asp-for=Student.Monday></label>
+            <input type="checkbox" asp-for=Student.Monday />
+        </div>
+        <div style="display:inline">
+            <label asp-for=Student.Tuesday></label>
+            <input type="checkbox" asp-for=Student.Tuesday />
+        </div>
 
 
 

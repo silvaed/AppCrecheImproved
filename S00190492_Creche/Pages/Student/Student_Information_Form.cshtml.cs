@@ -28,7 +28,7 @@ namespace S00190492_Creche.Pages.Student
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if(ModelState.IsValid)
+            if(ModelState.IsValid && Student.Monday == true)
             {
                 _db.Students.Add(Student);
                 await _db.SaveChangesAsync();
