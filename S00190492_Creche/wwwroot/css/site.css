@@ -35,3 +35,15 @@ body {
         display: none;
     }
 }
+
+.field-validation-error {
+    border: 1px solid red;
+    font-size: 13px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.container body-content{
+    margin-top:15px;
+    
+}
