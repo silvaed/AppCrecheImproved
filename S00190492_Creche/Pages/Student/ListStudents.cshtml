@@ -1,7 +1,7 @@
 ﻿@page "{id?}"
 @model S00190492_Creche.Pages.Student.ListStudentsModel
 @{
-    
+
     ViewData["Student"] = "List Students";
 }
 
@@ -31,28 +31,30 @@
     </tr>
     @foreach (var student in Model.Students)
     {
-    <tr>
-        <td>@student.ChildFirstName</td>
-        <td>@student.ChildLastName</td>
-        <td>@student.PPS</td>
-        <td>@student.DateOfBirth</td>
-        <td>@student.Gender</td>
-        <td>@student.ParentFirstName</td>
-        <td>@student.ParentLastName</td>
-        <td>@student.RelationshipToChild</td>
-        <td>@student.Address</td>
-        <td>@student.City</td>
-        <td>@student.ZipCode</td>
-        <td>@student.MobileNumber</td>
-        <td>@student.SecondContactNumber</td>
-        <td>@student.Email</td>
-        <td>@student.SecondEmail</td>
-        <td>@student.Hours</td>
-        <td>@student.DaysOfWeek</td>
-        <td>@student.StartingDate</td>
-        <td>@student.TotalDue</td>
-       
-    </tr>
+        <tr>
+            <td>@student.ChildFirstName</td>
+            <td>@student.ChildLastName</td>
+            <td>@student.PPS</td>
+            <td>@student.DateOfBirth</td>
+            <td>@student.Gender</td>
+            <td>@student.ParentFirstName</td>
+            <td>@student.ParentLastName</td>
+            <td>@student.RelationshipToChild</td>
+            <td>@student.Address</td>
+            <td>@student.City</td>
+            <td>@student.ZipCode</td>
+            <td>@student.MobileNumber</td>
+            <td>@student.SecondContactNumber</td>
+            <td>@student.Email</td>
+            <td>@student.SecondEmail</td>
+            <td>@student.Hours</td>
+            <td>@student.DaysOfWeek</td>
+            <td>@student.StartingDate</td>
+            <td>$@student.TotalDue</td>
+
+        </tr>
     }
-</table>    
+</table>
+
+
 

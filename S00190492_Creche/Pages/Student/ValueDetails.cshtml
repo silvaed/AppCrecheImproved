@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{PPS}"
 @model S00190492_Creche.Pages.Student.ValueDetailsModel
 @{
     ViewData["Student"] = "Details";
@@ -16,18 +16,22 @@
         <th scope="col">Total Due Week</th>
 
     </tr>
-    @foreach (var student in Model.Students)
-    {
+        
         <tr>
-            <td>@student.ChildFirstName</td>
-            <td>@student.ChildLastName</td>
-            <td>@student.ParentFirstName</td>
-            <td>@student.ParentLastName</td>
-            <td>@student.Hours</td>
-            <td>@student.DaysOfWeek</td>
-            <td>@student.StartingDate</td>
-            <td>@student.TotalDue</td>
+            <td>@Model.Student.PPS</td>
+            <td>@Model.Student.ChildLastName</td>
+            <td>@Model.Student.ChildFirstName</td>
+            <td>@Model.Student.ParentLastName</td>
+            <td>@Model.Student.ParentFirstName</td>
+            <td>@Model.Student.Hours</td>
+            <td>@Model.Student.DaysOfWeek</td>
+            <td>@Model.Student.StartingDate</td>
+            <td>$@Model.Student.TotalDue</td>
 
         </tr>
-    }
+    
 </table>
+<h1>@Model.Student.MessageApplication</h1>
+<h1>@Model.Student.Discount</h1>
+
+

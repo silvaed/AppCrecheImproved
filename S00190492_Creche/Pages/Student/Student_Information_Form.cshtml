@@ -146,13 +146,13 @@
                 <label id="t" asp-for=Student.Tuesday>Tuesday</label>
                 <input id="t" type="checkbox" asp-for=Student.Tuesday />
                 &nbsp;
-                <label id="w" asp-for=Student.Wednesday>Tuesday</label>
+                <label id="w" asp-for=Student.Wednesday>Wednesday</label>
                 <input id="w" type="checkbox" asp-for=Student.Wednesday />
                 &nbsp;
-                <label id="th" asp-for=Student.Thursday>Tuesday</label>
+                <label id="th" asp-for=Student.Thursday>Thursday</label>
                 <input id="th" type="checkbox" asp-for=Student.Thursday />
                 &nbsp;
-                <label id="fr" asp-for=Student.Friday>Tuesday</label>
+                <label id="fr" asp-for=Student.Friday>Friday</label>
                 <input id="fr" type="checkbox" asp-for=Student.Friday />
             </span>
             @if (Model.Student == null)
@@ -178,12 +178,24 @@
             {
                 <span class="field-validation-error">@Model.Student.CheckDateStart </span>
             }
+            @if (Model.Student == null)
+            {
+                <span></span>
+            }
+            else
+            {
+                <span class="field-validation-error">@Model.Student.CheckDateBirth </span>
+            }
         </div>
         <br />
         <div>
-            <button type="submit">Save</button>
+               <button type="submit">Save</button>
         </div>
 
+        
+
+
+        
 
     </form>
 

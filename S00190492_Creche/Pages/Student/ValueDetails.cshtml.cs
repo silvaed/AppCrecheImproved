@@ -20,10 +20,16 @@ namespace S00190492_Creche.Pages.Student
 
         public IList<S00190492_Creche.Model.Student> Students { get; private set; }
 
-        public async Task OnGetAsync()
-        {
-            Students = await _db.Students.AsNoTracking().ToListAsync();
-        }
+        [BindProperty(SupportsGet = true)]
+        public S00190492_Creche.Model.Student Student { get; set; }
+        //[BindProperty(SupportsGet=true)]
+        //public string PPS { get; set; }
+
+
+        //public async Task OnGetAsync()
+        //{
+        //    Students = await _db.Students.AsNoTracking().ToListAsync();
+        //}
        
     }
 }

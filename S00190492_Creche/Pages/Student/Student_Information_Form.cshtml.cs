@@ -35,11 +35,22 @@ namespace S00190492_Creche.Pages.Student
                 
                 if(Student.Hours == "Full Time")
                 {
-                    Student.TotalDue =TotalDays() * 35;
+                    Student.TotalDue =TotalDays() * 35m;
+                    if(TotalDays()>=4 && TotalDays() <= 5)
+                    {
+                        Student.TotalDue = Student.TotalDue * 0.9m;
+                        Student.Discount = "You got a discount of 10% on the original value";
+                    }
+
                 }
                 else
                 {
-                    Student.TotalDue = TotalDays() * 20;
+                    Student.TotalDue = TotalDays() * 20m;
+                    if (TotalDays() >= 4 && TotalDays() <= 5)
+                    {
+                        Student.TotalDue = Student.TotalDue * 0.9m;
+                        Student.Discount = "You got a discount of 10% on the original value";
+                    }
                 }
 
 
@@ -83,6 +94,32 @@ namespace S00190492_Creche.Pages.Student
             return numberOfDays;
         }
 
+        public bool CheckDateBirth()
+        {
+            bool checkDate = false;
+            string birthDate = Convert.ToString(Student.DateOfBirth);
+            string starDating = Convert.ToString(Student.StartingDate);
+            TimeSpan date = Convert.ToDateTime(starDating) - Convert.ToDateTime(birthDate);
+            int Days = date.Days;
+
+            if (Days >= 1095 && Days <= 1825)
+            {
+                checkDate = true;
+                Student.CheckDateBirth = "";
+            }
+            else
+            {
+                checkDate = false;
+                Student.CheckDateBirth = "The date is not valid, the child should be between 3 and 5 years old to start on this date.";
+               
+            }
+
+
+            return checkDate; 
+
+            
+        }
+
         public void OnGet()
         {
 
@@ -90,12 +127,13 @@ namespace S00190492_Creche.Pages.Student
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if(ModelState.IsValid && DaysOfWeek() && CheckDateStart() )
+            if(ModelState.IsValid && DaysOfWeek() && CheckDateStart() && CheckDateBirth())
             {
                 
                 _db.Students.Add(Student);
                 await _db.SaveChangesAsync();
-                return RedirectToPage("ValueDetails");
+                return RedirectToPage("ValueDetails", Student);
+                //return RedirectToPage("ValueDetails", new {PPS = Student.PPS});
 
             }
             else

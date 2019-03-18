@@ -47,7 +47,7 @@ namespace S00190492_Creche.Model
         [Display(Name = "Relationship")]
         public string RelationshipToChild { get; set; }
 
-        [RegularExpression(@"[\w](\w|\s){2,}", ErrorMessage = "The address should have at least 2 characters")]
+        [RegularExpression(@"[\w](\w|\s){4,}", ErrorMessage = "The address should have at least 4 characters")]
         [Required(ErrorMessage = "The address is required")]
         [Display(Name = "Address")]
         public string Address { get; set; } = "";
@@ -96,9 +96,12 @@ namespace S00190492_Creche.Model
 
         public string DaysOfWeek { get; set; } = "";
         public string CheckDaysOfWeek { get; set; } = "";
-        public double TotalDue { get; set; } = 0;
+        public decimal TotalDue { get; set; } = 0m;
         public string CheckDateBirth { get; set; } = "";
         public string CheckDateStart { get; set; } = "";
+        public string Discount { get; set; } = "";
+        public string MessageApplication { get; set; } = "Thank you. Your application has been processed.";
+
 
         public Student()
         {
