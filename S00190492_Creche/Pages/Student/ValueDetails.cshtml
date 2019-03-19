@@ -13,25 +13,45 @@
         <th scope="col">Full Or Part</th>
         <th scope="col">Days Of Week</th>
         <th scope="col">Starting Date</th>
+        <th scope="col">Cost Daily</th>
         <th scope="col">Total Due Week</th>
 
     </tr>
-        
-        <tr>
-            <td>@Model.Student.PPS</td>
-            <td>@Model.Student.ChildLastName</td>
-            <td>@Model.Student.ChildFirstName</td>
-            <td>@Model.Student.ParentLastName</td>
-            <td>@Model.Student.ParentFirstName</td>
-            <td>@Model.Student.Hours</td>
-            <td>@Model.Student.DaysOfWeek</td>
-            <td>@Model.Student.StartingDate</td>
-            <td>$@Model.Student.TotalDue</td>
 
-        </tr>
-    
+    <tr>
+        <td>@Model.Student.ChildLastName</td>
+        <td>@Model.Student.ChildFirstName</td>
+        <td>@Model.Student.ParentLastName</td>
+        <td>@Model.Student.ParentFirstName</td>
+        <td>@Model.Student.Hours</td>
+        <td>@Model.Student.DaysOfWeek</td>
+        <td>@Model.Student.StartingDate</td>
+        @if (@Model.Student.Hours == "Full Time")
+        {
+            <td>$35</td>
+        }
+        else
+        {
+            <td>$20</td>
+        }
+        <td>$@Model.Student.TotalDue</td>
+
+    </tr>
+
 </table>
-<h1>@Model.Student.MessageApplication</h1>
-<h1>@Model.Student.Discount</h1>
+    <div style="background-color:greenyellow">
+    <a href="#" class="close" data-dismiss="alert">&times;</a>
+    @Model.Student.MessageApplication
+    </div>
+    <br />
+    @if (!String.IsNullOrEmpty(@Model.Student.Discount))
+    {
+        <div style="background-color:greenyellow">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            @Model.Student.Discount
+        </div>
+    }
 
+
+   
 
