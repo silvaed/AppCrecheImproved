@@ -16,7 +16,7 @@
 <body>
     <form style="margin-top:15px" method="post">
 
-        <div asp-validation-summary="All"> </div>
+
 
         <div class="form-group">
             <label asp-for=Student.ChildFirstName></label>
@@ -68,17 +68,17 @@
             <span asp-validation-for=Student.ParentLastName></span>
         </div>
         <br />
-        <div class="form-check form-check-inline">
+        <div class="form-check form-check-inline">  
             <span style="font-weight:bold">
                 Relationship
                 <br />
                 <br />
-                <input class="form-check-input" id="me" value="Mother" type="radio" asp-for=Student.RelationshipToChild />
-                <label class="form-check-label" for="me" id="m" asp-for=Student.RelationshipToChild>Mother</label>
-                <input class="form-check-input" id="fe" value="Father" type="radio" asp-for=Student.RelationshipToChild />
-                <label class="form-check-label" for="fe" asp-for=Student.RelationshipToChild>Father</label>
+                <label class="form-check-label" for="teste" asp-for=Student.RelationshipToChild>Mother</label>
+                <input class="form-check-input" id="teste" value="Mother" type="radio" asp-for=Student.RelationshipToChild/>
+                <label class="form-check-label" for="test1" asp-for=Student.RelationshipToChild>Father</label>
+                <input class="form-check-input" id="test1" value="Father" type="radio" asp-for=Student.RelationshipToChild />
+                <label class="form-check-label" asp-for=Student.RelationshipToChild>Other</label>
                 <input class="form-check-input" id="o" value="Other" type="radio" asp-for=Student.RelationshipToChild />
-                <label class="form-check-label" for="o" asp-for=Student.RelationshipToChild>Other</label>
             </span>
             <span asp-validation-for=Student.RelationshipToChild></span>
         </div>
@@ -127,10 +127,10 @@
         </div>
         <br />
         <div>
-            <input id="fu" value="Full Time" type="radio" asp-for=Student.Hours />
-            <label for="fu" asp-for=Student.Hours>Full Time</label>
+            <label id="f" asp-for=Student.Hours>Full Time</label>
+            <input id="f" value="Full Time" type="radio" asp-for=Student.Hours />
+            <label id="p" asp-for=Student.Hours>Part Time</label>
             <input id="p" value="Part Time" type="radio" asp-for=Student.Hours />
-            <label for="p" asp-for=Student.Hours>Part Time</label>
             <span asp-validation-for=Student.Hours></span>
         </div>
         <br />
@@ -140,20 +140,20 @@
                 Which days the child will attend.
                 <br />
                 <br />
-                <input id="mon" type="checkbox" asp-for=Student.Monday />
-                <label for="mon" asp-for=Student.Monday>Monday</label>
+                <label id="m" asp-for=Student.Monday>Monday</label>
+                <input id="m" type="checkbox" asp-for=Student.Monday />
                 &nbsp;
+                <label id="t" asp-for=Student.Tuesday>Tuesday</label>
                 <input id="t" type="checkbox" asp-for=Student.Tuesday />
-                <label for="t" asp-for=Student.Tuesday>Tuesday</label>
                 &nbsp;
+                <label id="w" asp-for=Student.Wednesday>Wednesday</label>
                 <input id="w" type="checkbox" asp-for=Student.Wednesday />
-                <label for="w" asp-for=Student.Wednesday>Wednesday</label>
                 &nbsp;
+                <label id="th" asp-for=Student.Thursday>Thursday</label>
                 <input id="th" type="checkbox" asp-for=Student.Thursday />
-                <label for="th" asp-for=Student.Thursday>Thursday</label>
                 &nbsp;
+                <label id="fr" asp-for=Student.Friday>Friday</label>
                 <input id="fr" type="checkbox" asp-for=Student.Friday />
-                <label for="fr" asp-for=Student.Friday>Friday</label>
             </span>
             @if (Model.Student == null)
             {
@@ -189,10 +189,13 @@
         </div>
         <br />
         <div>
-            <button type="submit">Save</button>
+               <button type="submit">Save</button>
         </div>
 
+        
 
+
+        
 
     </form>
 

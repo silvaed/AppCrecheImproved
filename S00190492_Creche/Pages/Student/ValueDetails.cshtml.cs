@@ -18,18 +18,20 @@ namespace S00190492_Creche.Pages.Student
             _db = db;
         }
 
-        public IList<S00190492_Creche.Model.Student> Students { get; private set; }
+        
+        //[BindProperty(SupportsGet = true)]
+        //public S00190492_Creche.Model.Student Student { get; set; }
 
-        [BindProperty(SupportsGet = true)]
+
+
+        //Feedback from project
         public S00190492_Creche.Model.Student Student { get; set; }
-        //[BindProperty(SupportsGet=true)]
-        //public string PPS { get; set; }
+        public async Task<IActionResult> OnGetAsync(string id)
+        {
+            Student = await _db.Students.FindAsync(id);
 
+            return Page();
+        }
 
-        //public async Task OnGetAsync()
-        //{
-        //    Students = await _db.Students.AsNoTracking().ToListAsync();
-        //}
-       
     }
 }

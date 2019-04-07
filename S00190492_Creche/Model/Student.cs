@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace S00190492_Creche.Model
 {
     public class Student
     {
-        
+        //[Key]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public string ID { get; set; }
+
         [Required(ErrorMessage = "The child first name is required")]
         [RegularExpression(@"\D{2,}", ErrorMessage = "The first name should have at least 2 characters")]
         [Display(Name = "Child First Name")]
@@ -19,10 +23,9 @@ namespace S00190492_Creche.Model
         [Display(Name = "Child Last Name")]
         public string ChildLastName { get; set; } = "";
 
-        [RegularExpression(@"\d{7,7}[A-Z]{2,2}", ErrorMessage = "PPS number should have the format 1234567AA")]
+        [RegularExpression(@"\d{7,7}[A-Z|a-z]{2,2}", ErrorMessage = "PPS number should have the format 1234567AA or 1234567aa")]
         [Required(ErrorMessage = "The PPS number is required")]
         [Display(Name = "PPS Number")]
-        [Key]
         public string PPS { get; set; } = "";
 
         [Required(ErrorMessage = "You did not put a date or the date is not valid")]
@@ -47,7 +50,7 @@ namespace S00190492_Creche.Model
         [Display(Name = "Relationship")]
         public string RelationshipToChild { get; set; }
 
-        [RegularExpression(@"[\w](\w|\s){4,}", ErrorMessage = "The address should have at least 4 characters")]
+        [RegularExpression(@"[\w|]{1,1}(\D|\d){3,}", ErrorMessage = "The address should have at least 4 characters")]
         [Required(ErrorMessage = "The address is required")]
         [Display(Name = "Address")]
         public string Address { get; set; } = "";
@@ -57,7 +60,7 @@ namespace S00190492_Creche.Model
         [Display(Name = "City")]
         public string City { get; set; } = "";
 
-        [RegularExpression(@"\w{7,7}", ErrorMessage = "The ZipCode should have 7 characters")]
+        [RegularExpression(@"\w{4,4}\w{3,3}|\w{4,4}\s{1,1}\w{3,3}", ErrorMessage = "The ZipCode should have 7 characters")]
         [Required(ErrorMessage = "The ZipCode is required")]
         [Display(Name = "ZipCode")]
         public string ZipCode { get; set; } = "";
@@ -107,7 +110,109 @@ namespace S00190492_Creche.Model
         {
 
         }
+
+        public int MethodTotalDays()
+        {
+            int numberOfDays = 0;
+            if (Monday) numberOfDays += 1;
+            if (Tuesday) numberOfDays += 1;
+            if (Wednesday) numberOfDays += 1;
+            if (Thursday) numberOfDays += 1;
+            if (Friday) numberOfDays += 1;
+
+            return numberOfDays;
+        }
+
+        public bool MethodDaysOfWeek()
+        {
+            bool atLeastADay;
+            if (Monday == true || Tuesday == true || Wednesday == true || Thursday == true || Friday == true)
+            {
+                if (Monday) DaysOfWeek += "Monday ";
+                if (Tuesday) DaysOfWeek += "Tuesday ";
+                if (Wednesday) DaysOfWeek += "Wednesday ";
+                if (Thursday) DaysOfWeek += "Thursday ";
+                if (Friday) DaysOfWeek += "Friday";
+                CheckDaysOfWeek = "";
+
+                if (Hours == "Full Time")
+                {
+                    TotalDue = MethodTotalDays() * 35m;
+                    if (MethodTotalDays() >= 4 && MethodTotalDays() <= 5)
+                    {
+                        TotalDue = TotalDue * 0.9m;
+                        Discount = "You got a discount of 10% on the original value";
+                    }
+
+                }
+                else
+                {
+                    TotalDue = MethodTotalDays() * 20m;
+                    if (MethodTotalDays() >= 4 && MethodTotalDays() <= 5)
+                    {
+                        TotalDue = TotalDue * 0.9m;
+                        Discount = "You got a discount of 10% on the original value";
+                    }
+                }
+
+
+                atLeastADay = true;
+            }
+
+            else
+            {
+               CheckDaysOfWeek = "You need to select at least a day of the week";
+               atLeastADay = false;
+            }
+
+
+            return atLeastADay;
+        }
+
+        public bool MethodCheckDateStart()
+        {
+            bool checkDates = false;
+            if (StartingDate > DateTime.Now)
+            {
+                CheckDateStart = "";
+                checkDates = true;
+            }
+            else
+            {
+                CheckDateStart = "The date is not valid";
+                checkDates = false;
+            }
+            return checkDates;
+        }
+
+        public bool MethodCheckDateBirth()
+        {
+            bool checkDate = false;
+            string birthDate = Convert.ToString(DateOfBirth);
+            string starDating = Convert.ToString(StartingDate);
+            TimeSpan date = Convert.ToDateTime(starDating) - Convert.ToDateTime(birthDate);
+            int Days = date.Days;
+
+            if (Days >= 1095 && Days <= 1825)
+            {
+                checkDate = true;
+                CheckDateBirth = "";
+            }
+            else
+            {
+                checkDate = false;
+                CheckDateBirth = "The date is not valid, the child should be between 3 and 5 years old to start on this date.";
+
+            }
+
+
+            return checkDate;
+
+
+        }
     }
+
+
 
 
 }
