@@ -10,26 +10,26 @@ namespace S00190492_Creche.Pages.Student
 {
     public class CookiePageModel : PageModel
     {
+        [BindProperty]
         public string Message { get; set; }
 
         
-                
-
+            
         public void OnGet()
         {
             
-            if (Request.Cookies["Teste"] != null)
+            if (Request.Cookies["MyCookie"] != null)
             {
-                Message = $"There is a cookie which said {Request.Cookies["Teste"]}";
+                Message = $"There is a cookie which said {Request.Cookies["MyCookie"]}";
             }
             else
             {
                 Message = "There is no cookie added";
             }
 
-            CookieOptions options = new CookieOptions();
-            options.Expires = DateTime.Now.AddMinutes(5);
-            Response.Cookies.Append("Teste", "Cookie add from Cookie Code", options);
+            var cookieOptions = new CookieOptions();
+            cookieOptions.Expires = DateTime.Now.AddMinutes(1);
+            Response.Cookies.Append("MyCookie", "Cookie add from Cookie Code", cookieOptions);
 
 
         }

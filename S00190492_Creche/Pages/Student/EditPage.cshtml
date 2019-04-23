@@ -1,0 +1,195 @@
+﻿@page "{id}"
+@model S00190492_Creche.Pages.Student.EditPageModel
+@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Student"] = "EditPage";
+    Layout = "~/Pages/Student/_Layout.cshtml";
+}
+
+<form style="margin-top:15px" method="post">
+
+    <div asp-validation-summary="All"> </div>
+
+    <div style="display:none">
+        <input class="form-control" asp-for=Student.ID />
+        <span asp-validation-for=Student.ID></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for=Student.ChildFirstName></label>
+        <input class="form-control" asp-for=Student.ChildFirstName />
+        <span asp-validation-for=Student.ChildFirstName></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for=Student.ChildLastName></label>
+        <input class="form-control" asp-for=Student.ChildLastName />
+        <span asp-validation-for=Student.ChildLastName></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for=Student.PPS></label>
+        <input class="form-control" asp-for=Student.PPS />
+        <span asp-validation-for=Student.PPS></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for=Student.DateOfBirth></label>
+        <input class="form-control" type="Date" asp-for=Student.DateOfBirth />
+        <span asp-validation-for=Student.DateOfBirth></span>
+    </div>
+    <br />
+    <div class="form-check form-check-inline">
+        <span style="font-weight:bold">
+            Gender
+            <br />
+            <br />
+            <label class="form-check-label" for="m" asp-for=Student.Gender>Male</label>
+            <input class="form-check-input" id="m" value="Male" type="radio" asp-for=Student.Gender />
+            <label class="form-check-label" for="f" asp-for=Student.Gender>Female</label>
+            <input class="form-check-input" id="f" value="Female" type="radio" asp-for=Student.Gender />
+        </span>
+        <span asp-validation-for=Student.Gender></span>
+    </div>
+    <br />
+    <br />
+    <div class="form-group">
+        <label asp-for=Student.ParentFirstName></label>
+        <input class="form-control" asp-for=Student.ParentFirstName />
+        <span asp-validation-for=Student.ParentFirstName></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for=Student.ParentLastName></label>
+        <input class="form-control" asp-for=Student.ParentLastName />
+        <span asp-validation-for=Student.ParentLastName></span>
+    </div>
+    <br />
+    <div class="form-check form-check-inline">
+        <span style="font-weight:bold">
+            Relationship
+            <br />
+            <br />
+            <input class="form-check-input" id="me" value="Mother" type="radio" asp-for=Student.RelationshipToChild />
+            <label class="form-check-label" for="me" id="m" asp-for=Student.RelationshipToChild>Mother</label>
+            <input class="form-check-input" id="fe" value="Father" type="radio" asp-for=Student.RelationshipToChild />
+            <label class="form-check-label" for="fe" asp-for=Student.RelationshipToChild>Father</label>
+            <input class="form-check-input" id="o" value="Other" type="radio" asp-for=Student.RelationshipToChild />
+            <label class="form-check-label" for="o" asp-for=Student.RelationshipToChild>Other</label>
+        </span>
+        <span asp-validation-for=Student.RelationshipToChild></span>
+    </div>
+    <br />
+    <br />
+    <div class="form-group">
+        <label asp-for=Student.Address></label>
+        <input class="form-control" asp-for=Student.Address />
+        <span asp-validation-for=Student.Address></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for=Student.City></label>
+        <input class="form-control" asp-for=Student.City />
+        <span asp-validation-for=Student.City></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for=Student.ZipCode></label>
+        <input class="form-control" asp-for=Student.ZipCode />
+        <span asp-validation-for=Student.ZipCode></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for=Student.MobileNumber></label>
+        <input class="form-control" asp-for=Student.MobileNumber />
+        <span asp-validation-for=Student.MobileNumber></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for=Student.SecondContactNumber></label>
+        <input class="form-control" asp-for=Student.SecondContactNumber />
+        <span asp-validation-for=Student.SecondContactNumber></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for=Student.Email></label>
+        <input class="form-control" asp-for=Student.Email />
+        <span asp-validation-for=Student.Email></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for=Student.SecondEmail></label>
+        <input class="form-control" asp-for=Student.SecondEmail />
+        <span asp-validation-for=Student.SecondEmail></span>
+    </div>
+    <br />
+    <div>
+        <input id="fu" value="Full Time" type="radio" asp-for=Student.Hours />
+        <label for="fu" asp-for=Student.Hours>Full Time</label>
+        <input id="p" value="Part Time" type="radio" asp-for=Student.Hours />
+        <label for="p" asp-for=Student.Hours>Part Time</label>
+        <span asp-validation-for=Student.Hours></span>
+    </div>
+    <br />
+    <br />
+    <div>
+        <span style="font-weight:bold">
+            Which days the child will attend.
+            <br />
+            <br />
+            <input id="mon" type="checkbox" asp-for=Student.Monday />
+            <label for="mon" asp-for=Student.Monday>Monday</label>
+            &nbsp;
+            <input id="t" type="checkbox" asp-for=Student.Tuesday />
+            <label for="t" asp-for=Student.Tuesday>Tuesday</label>
+            &nbsp;
+            <input id="w" type="checkbox" asp-for=Student.Wednesday />
+            <label for="w" asp-for=Student.Wednesday>Wednesday</label>
+            &nbsp;
+            <input id="th" type="checkbox" asp-for=Student.Thursday />
+            <label for="th" asp-for=Student.Thursday>Thursday</label>
+            &nbsp;
+            <input id="fr" type="checkbox" asp-for=Student.Friday />
+            <label for="fr" asp-for=Student.Friday>Friday</label>
+        </span>
+        @if (Model.Student == null)
+        {
+            <span></span>
+        }
+        else
+        {
+            <span class="field-validation-error">@Model.Student.CheckDaysOfWeek </span>
+        }
+    </div>
+    <br />
+    <br />
+    <div class="form-group">
+        <label asp-for=Student.StartingDate></label>
+        <input class="form-control" type="Date" asp-for=Student.StartingDate />
+        <span asp-validation-for=Student.StartingDate></span>
+        @if (Model.Student == null)
+        {
+            <span></span>
+        }
+        else
+        {
+            <span class="field-validation-error">@Model.Student.CheckDateStart </span>
+        }
+        @if (Model.Student == null)
+        {
+            <span></span>
+        }
+        else
+        {
+            <span class="field-validation-error">@Model.Student.CheckDateBirth </span>
+        }
+    </div>
+    <br />
+    <div>
+        <button type="submit">Save</button>
+    </div>
+
+
+
+</form>
+

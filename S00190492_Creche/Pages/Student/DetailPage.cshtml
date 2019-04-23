@@ -1,0 +1,31 @@
+﻿@page "{id}"
+@model S00190492_Creche.Pages.Student.DetailPageModel
+@{
+    ViewData["Title"] = "DetailPage";
+    Layout = "~/Pages/Student/_Layout.cshtml";
+}
+
+<h1>Application Details</h1>
+<br />
+<h2>@Model.Student.ChildFirstName</h2>
+<h2>@Model.Student.ChildLastName</h2>
+<h2>@Model.Student.PPS</h2>
+<h2>@Model.Student.DateOfBirth</h2>
+<h2>@Model.Student.Gender</h2>
+<h2>@Model.Student.ParentFirstName</h2>
+<h2>@Model.Student.ParentLastName</h2>
+<h2>@Model.Student.RelationshipToChild</h2>
+<h2>@Model.Student.Address</h2>
+<h2>@Model.Student.City</h2>
+<h2>@Model.Student.ZipCode</h2>
+<h2>@Model.Student.MobileNumber</h2>
+<h2>@Model.Student.SecondContactNumber</h2>
+<h2>@Model.Student.Email</h2>
+<h2>@Model.Student.SecondEmail</h2>
+<h2>@Model.Student.Hours</h2>
+<h2>@Model.Student.DaysOfWeek</h2>
+<h2>@Model.Student.StartingDate</h2>
+<h2>$@Model.Student.DiscountValue</h2>
+<h2>$@Model.Student.TotalDue</h2>
+
+

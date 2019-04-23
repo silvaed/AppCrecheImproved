@@ -104,6 +104,7 @@ namespace S00190492_Creche.Model
         public string CheckDateStart { get; set; } = "";
         public string Discount { get; set; } = "";
         public string MessageApplication { get; set; } = "Thank you. Your application has been processed.";
+        public decimal DiscountValue { get; set; } = 0m;
 
 
         public Student()
@@ -140,6 +141,7 @@ namespace S00190492_Creche.Model
                     TotalDue = MethodTotalDays() * 35m;
                     if (MethodTotalDays() >= 4 && MethodTotalDays() <= 5)
                     {
+                        DiscountValue = TotalDue - (TotalDue * 0.9m);
                         TotalDue = TotalDue * 0.9m;
                         Discount = "You got a discount of 10% on the original value";
                     }
@@ -150,6 +152,7 @@ namespace S00190492_Creche.Model
                     TotalDue = MethodTotalDays() * 20m;
                     if (MethodTotalDays() >= 4 && MethodTotalDays() <= 5)
                     {
+                        DiscountValue = TotalDue - (TotalDue * 0.9m);
                         TotalDue = TotalDue * 0.9m;
                         Discount = "You got a discount of 10% on the original value";
                     }
